@@ -1,0 +1,39 @@
+<mat-card *ngIf="PagedData">
+  <table mat-table [dataSource]="PagedData.data || []">
+    <!-- Column Definitions -->
+    @for (item of displayedColumns; track $index) {
+      @if (item === 'action') {
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef>{{ item }}</th>
+          <td mat-cell *matCellDef="let element" class="flex gap-2 p-2!">
+            <button mat-flat-button (click)="edit(element)">Edit</button>
+            <button mat-flat-button class="bg-red-500!" (click)="delete(element)">Delete</button>
+          </td>
+        </ng-container>
+      } @else {
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef>{{ item }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[item] }}</td>
+        </ng-container>
+      }
+    }
+
+    <!-- Header and Row Rendering -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <div class="flex flex-row-reverse my-2 px-4">
+    <mat-paginator
+      class="demo-paginator"
+      (page)="pageChange($event)"
+      [length]="PagedData.totalData"
+      [pageSize]="pageSize"
+      [pageIndex]="pageIndex"
+      aria-label="Select page">
+    </mat-paginator>
+  </div>
+</mat-card>
+
+

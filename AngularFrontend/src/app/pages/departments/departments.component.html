@@ -1,0 +1,41 @@
+<div class="p-8">
+
+  <div *ngIf="!isFormOpen; else formTemplate">
+    <div class="flex justify-between mb-2">
+      <h1 class="text-xl font-semibold">Departments</h1>
+      <button mat-flat-button class="bg-green-500!" (click)="isFormOpen = true; departmentName = '';">Add</button>
+    </div>
+
+    <app-table 
+      [PagedData]="departments" 
+      [pageIndex]="filter.pageIndex"
+      [pageSize]="filter.pageSize"
+      [displayedColumns]="showCols" 
+       [emitOnlyId]="true"
+      (onEdit)="editDepartment($event)" 
+      (onDelete)="delete($event)"
+      (onPageChange)="pageChange($event)">
+    </app-table>
+  </div>
+
+  <ng-template #formTemplate>
+    <div class="flex">
+      <form class="w-[360px] m-auto shadow-lg py-6 p-16">
+        <h1 class="text-xl font-semibold mb-2">Add Department</h1>
+
+        <mat-form-field class="w-full">
+          <mat-label>Name</mat-label>
+          <input matInput name="departmentName" [(ngModel)]="departmentName">
+        </mat-form-field>
+
+        <div class="w-full flex justify-center">
+          <button *ngIf="editId; else addBtn" type="button" (click)="updateDepartment()" mat-flat-button class="bg-green-500!">Update</button>
+          <ng-template #addBtn>
+            <button type="button" (click)="addDepartment()" mat-flat-button class="bg-green-500!">Add</button>
+          </ng-template>
+        </div>
+
+      </form>
+    </div>
+  </ng-template>
+</div>
