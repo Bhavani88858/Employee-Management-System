@@ -39,7 +39,8 @@ A full-stack web application to manage employees and departments, with secure lo
 - **Email:** `emp1@gmail.com`  
 - **Password:** `12345`
 
-### Future Implementations
+### Future Implementations:
+_______________________________
 
  **1. Leave Management Module**
 - Employees can apply for leaves.
