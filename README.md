@@ -37,4 +37,31 @@ A full-stack web application to manage employees and departments, with secure lo
 
 ### Employee
 - **Email:** `emp1@gmail.com`  
-- **Password:** `12345`  
+- **Password:** `12345`
+
+  ###  Future Implementations
+
+ **1. Leave Management Module**
+- Employees can apply for leaves.
+- Managers can approve or reject leave requests.
+- Leave balance tracking and leave history.
+- Email notification for approvals/rejections.
+
+ **2. Attendance Management**
+- Daily attendance marking.
+- Monthly attendance reports.
+- Integration with biometric systems for auto-attendance.
+
+ **3. Payroll Management**
+- Automatic salary calculation.
+- Leave deductions, overtime, and bonuses.
+- Generate downloadable salary slips (PDF).
+
+ **4. Dashboard with Analytics**
+- Overview of total employees, departments, and active users.
+- Department-wise employee distribution chart.
+- Monthly employee joining trends (Bar/Line charts).
+- Recent activity logs (employee added/updated).
+
+
+
